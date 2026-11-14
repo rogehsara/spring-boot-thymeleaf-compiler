@@ -1,0 +1,22 @@
+التشغيل من VS Code
+افتح المجلد من File → Open Folder واختر D:\compailer.
+افتح الـ Terminal من القائمة Terminal → New Terminal أو بالاختصار Ctrl + ` .
+اكتب الأمر التالي واضغط Enter:
+.\run.bat
+النقطة والشرطة .\ بالبداية ضرورية لأن Terminal في VS Code هو PowerShell افتراضياً.
+
+هذا الأمر يقوم بكل شيء:
+
+يولّد الـ Lexer والـ Parser من ملفات .g4 إلى مجلد gen.
+يترجم الكود إلى مجلد out.
+يطبع شجرة التحليل لكل ملفات الاختبار، وتحت كل ملف السطر Syntax errors: 0.
+تشغيل ملف واحد فقط
+بعد ما تشغّل run.bat مرة واحدة على الأقل، تقدر تجرّب ملف لوحده:
+
+java -cp "out;lib\antlr-4.13.1-complete.jar" Main tests\products.html
+ولطباعة التوكنات (Tokens) أيضاً، أضف -tokens بالآخر:
+
+java -cp "out;lib\antlr-4.13.1-complete.jar" Main tests\ProductController.java -tokens
+الخرج طويل. إذا بدك تحفظه بملف وتفتحه بـ VS Code:
+
+java -cp "out;lib\antlr-4.13.1-complete.jar" Main tests\products.html > output.txt

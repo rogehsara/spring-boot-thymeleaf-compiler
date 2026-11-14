@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .product-card {
+            display: inline-block;
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+        }
+        a:hover {
+            color: rgb(200, 0, 0);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>All Products</h1>
+    <p th:text="'Number of products: ' + ${count}">0</p>
+
+    <a th:href="@{/products/new}">Add new product</a>
+
+    <p th:if="${#lists.isEmpty(products)}">No products found</p>
+
+    <div class="product-card" th:each="p : ${products}">
+        <img th:src="@{${p.imageUrl}}" alt="product image">
+        <h3 th:text="${p.name}">Product name</h3>
+        <p th:text="${p.price} + ' $'">0 $</p>
+        <a th:href="@{/products/{id}(id=${p.id})}">Details</a>
+    </div>
+</div>
+</body>
+</html>
