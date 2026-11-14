@@ -1,10 +1,4 @@
-// Lexer لقوالب Thymeleaf (HTML + Thymeleaf + CSS)
-// استخدمنا الـ modes لأن نفس الحرف إلو معنى مختلف حسب مكانه
-//   DEFAULT  : النص العادي بين الوسوم
-//   TAG      : جوا الوسم  <div class="x" ...>
-//   TH_ATTR  : بعد اسم خاصية thymeleaf مثل th:text
-//   TH_VALUE : جوا قيمة خاصية thymeleaf  "${product.name}"
-//   CSS      : جوا وسم <style> ... </style>
+
 lexer grammar HTMLLexer;
 
 // ===================== DEFAULT MODE =====================
@@ -46,7 +40,6 @@ TAG_WS          : [ \t\r\n]+ -> skip ;
 
 
 // ===================== TH_ATTR MODE =====================
-// منكون هون بعد ما قرينا th:xxx  وناطرين  ="
 mode TH_ATTR;
 
 TH_EQUALS       : '=' ;
@@ -128,7 +121,6 @@ CSS_STAR        : '*' ;
 CSS_SLASH       : '/' ;
 CSS_IMPORTANT   : '!important' ;
 
-// #fff  أو  #header  (نفس الشكل، الـ parser بيعرف من المكان)
 CSS_HASH        : '#' [a-zA-Z0-9_\-]+ ;
 
 // 10px  1.5em  50%  0

@@ -1,6 +1,4 @@
-// Parser لملفات Java
-// بيدعم: package, import, class, annotations, fields, constructors, methods
-// والتعليمات والتعابير الأساسية اللي بتنكتب عادة بالـ Controller والـ Model
+
 parser grammar JavaParser;
 
 options { tokenVocab = JavaLexer; }
@@ -152,7 +150,6 @@ forUpdate
     ;
 
 // ================= التعابير =================
-// ترتيب البدائل هو ترتيب الأولوية (الأعلى أولاً)
 
 expression
     : primary                                                   # primaryExpr

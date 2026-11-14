@@ -1,7 +1,4 @@
-// Parser لقوالب Thymeleaf
-// الملف = DOCTYPE + عناصر HTML
-// العنصر ممكن يحتوي خصائص عادية أو خصائص thymeleaf
-// وجوا وسم style في قواعد CSS
+
 parser grammar HTMLParser;
 
 options { tokenVocab = HTMLLexer; }
